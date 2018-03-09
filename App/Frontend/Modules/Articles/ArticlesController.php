@@ -1,7 +1,5 @@
 <?php
 namespace App\Frontend\Modules\Articles;
-
-
 use \OCFram\BackController;
 use \OCFram\HTTPRequest;
 use \Entity\Comment;
@@ -10,11 +8,9 @@ use \Entity\User;
 use \FormBuilder\CommentFormBuilder;
 use \FormBuilder\SearchFormBuilder;
 use \OCFram\FormHandler;
-
  
 class ArticlesController extends BackController
 {
-
   public function executeListe_articles()
   {
     $this->page->addVar('title', 'accueil');
@@ -51,7 +47,6 @@ class ArticlesController extends BackController
     $this->page->addVar('bandeau_lateral', $bandeau_lateral);
     
  
-
     ob_start();
       require __DIR__ .'/views/titre_global.html';
     $titre_global = ob_get_clean();
@@ -127,12 +122,9 @@ class ArticlesController extends BackController
     $bandeau_lateral = ob_get_clean();
     $this->page->addVar('bandeau_lateral', $bandeau_lateral);
  
-
-
     $nombreArticles = $manager->count();
     
     $this->page->addVar('nombreArticles', $nombreArticles);
-
     
   }
  
@@ -197,9 +189,6 @@ class ArticlesController extends BackController
     
     
   }
-
-
-
   public function executeSearch(HTTPRequest $request)
   {
     if ($request->method() == 'POST')
@@ -233,7 +222,6 @@ class ArticlesController extends BackController
 		$this->page->addVar('arrivals', $list_arrivals);
     }
  
-
     $manager = $this->managers->getManagerOf('Articles');
     $nombreArticles = $manager->count();
     
@@ -244,13 +232,11 @@ class ArticlesController extends BackController
     $bandeau_lateral = ob_get_clean();
     $this->page->addVar('bandeau_lateral', $bandeau_lateral);
  
-
   }
   
   
   public function executeWhoamI()
   {
-
     $this->page->addVar('title', 'qui je suis?');
     
     $manager = $this->managers->getManagerOf('Articles');
@@ -262,26 +248,9 @@ class ArticlesController extends BackController
       require __DIR__ .'/views/bandeau_lateral_titre.php';
     $bandeau_lateral = ob_get_clean();
     $this->page->addVar('bandeau_lateral', $bandeau_lateral);
-
   }
   
   
   
   
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
