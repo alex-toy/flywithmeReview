@@ -24,7 +24,7 @@ class PilotController extends BackController
     
     $pilotManager = $this->managers->getManagerOf('Pilot');
     
-    
+    $pilot = new Pilot;
     if ($request->method() == 'POST')
     {
       $pilot = new Pilot([
@@ -33,11 +33,6 @@ class PilotController extends BackController
         'pwrd' => $request->postData('pwrd')
       ]);
     }
-    else
-    {
-    	$pilot = new Pilot;
-    }
-    
     
     
     $formBuilder = new PilotConnectFormBuilder($pilot);
@@ -72,7 +67,7 @@ class PilotController extends BackController
     
     $pilotManager = $this->managers->getManagerOf('Pilot');
     
-    
+    $pilot = new Pilot;
     if ($request->method() == 'POST')
     {
       
@@ -87,11 +82,7 @@ class PilotController extends BackController
      }
      	
     }
-    else
-    {
-      	
-    	$pilot = new Pilot;
-    }
+    
     
     $formBuilder = new PilotFormBuilder($pilot);
     $formBuilder->build();
@@ -107,12 +98,13 @@ class PilotController extends BackController
 			$this->app->httpResponse()->redirect('http://localhost/~alexei/FlyWithMeOC2/Web/articles');
 		}
 	}
- 	else if( !$pilotManager->HasUniqueName($pilot->pilotname()) && !empty($pilot->pilotname()) ){
+ 	if( !$pilotManager->HasUniqueName($pilot->pilotname()) ){
 		$this->app->user()->setFlash('Ce nom existe déjà. Essayez avec autre chose !');
 	}
-	else if( !$pilotManager->HasUniqueMail($pilot->email()) && !empty($pilot->email()) ){
-		$this->app->user()->setFlash('Ce mail existe déjà. Essayez avec autre chose !');
+	if( !$pilotManager->HasUniqueMail($pilot->email()) ){
+		$this->app->user()->setFlash('Cette adresse mail existe déjà. Essayez avec autre chose !');
 	}
+	
     
  
     $this->page->addVar('form', $form->createView());
