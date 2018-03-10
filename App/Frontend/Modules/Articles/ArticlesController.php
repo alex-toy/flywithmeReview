@@ -200,18 +200,17 @@ class ArticlesController extends BackController
   
   public function executeSearch(HTTPRequest $request)
   {
+    $manager = $this->managers->getManagerOf('Articles');
+    
+    $list_departures = $manager->getDepartures();
+	$this->page->addVar('departures', $list_departures);
+		
+	$list_arrivals = $manager->getArrivals();
+	$this->page->addVar('arrivals', $list_arrivals);
+    
+    
     if ($request->method() == 'POST')
     {
-		$manager = $this->managers->getManagerOf('Articles');
-		$list_departures = $manager->getDepartures();
-		$this->page->addVar('departures', $list_departures);
-		
-		
-		
-		$list_arrivals = $manager->getArrivals();
-		$this->page->addVar('arrivals', $list_arrivals);
-		
-      
 		$idArtCorrespondant = $manager->getArticlesByDepartureAndArrival($_POST['depart'], $_POST['arrivee']);
 		$article = [];
 		foreach($idArtCorrespondant as $id)
@@ -221,24 +220,14 @@ class ArticlesController extends BackController
 		$this->page->addVar('article', $article);
       
     }
-    else
-    {
-		$manager = $this->managers->getManagerOf('Articles');
-		$list_departures = $manager->getDepartures();
-		$this->page->addVar('departures', $list_departures);
-		
-		$list_arrivals = $manager->getArrivals();
-		$this->page->addVar('arrivals', $list_arrivals);
-    }
- 
-    $manager = $this->managers->getManagerOf('Articles');
+    
     $nombreArticles = $manager->count();
     
     $this->page->addVar('nombreArticles', $nombreArticles);
     $listeAllTitle = $manager->getAllTitle();
     $this->page->addVar('listeAllTitle', $listeAllTitle);
     
-    $this->page->addVar('listeAllTitle', $listeAllTitle);
+    
     ob_start();
       require __DIR__ .'/views/bandeau_lateral_titre.php';
     $bandeau_lateral = ob_get_clean();

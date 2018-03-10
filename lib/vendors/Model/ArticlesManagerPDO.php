@@ -383,6 +383,7 @@ class ArticlesManagerPDO extends ArticlesManager
     
     $requete->closeCursor();
  
+ 	var_dump($id_article);
     return $id_article;
   }
   
