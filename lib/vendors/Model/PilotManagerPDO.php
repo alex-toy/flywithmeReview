@@ -8,7 +8,6 @@ class PilotManagerPDO extends PilotManager
   
   protected function add(Pilot $pilot)
   {
-    //echo 'PilotManagerPDO->add<br>';
     
 	$requete = $this->dao->prepare('INSERT INTO pilot SET pilotname = :pilotname, email = :email,  registered = false, pwrd = :pwrd;');
 	
@@ -36,8 +35,8 @@ class PilotManagerPDO extends PilotManager
 	}
     $requete->closeCursor();
     
-    if(in_array($name, $array_name)) { return false; }
-   	else { return true; }
+    if(!in_array($name, $array_name)) { return true; }
+   	return false;
     
     
   }
@@ -58,8 +57,8 @@ class PilotManagerPDO extends PilotManager
     $requete->closeCursor();
     
 
-    if(in_array($email, $array_mail)) { return false; }
-   	else { return true; }
+    if(!in_array($email, $array_mail)) { return true; }
+   	return false;
     
     
   }
