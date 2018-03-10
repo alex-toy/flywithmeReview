@@ -33,13 +33,13 @@ foreach ($AllCommentsFromPilotName as $comment)
 
 <section class="encart">		
 <p><a class="btn btn-primary" href="/~alexei/FlyWithMeOC2/Web/admin/pilotes/">Retourner à la liste des pilotes</a></p>		
-</section>	
+</section>
 
 
 
-		
-			
-			
-			
-        
-        
+
+
+
+
+
+

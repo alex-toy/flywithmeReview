@@ -48,7 +48,6 @@ class User
   
   public function UnAuthenticate()
   {
-	//echo 'UnAuthenticate<br>';
     $_SESSION['auth'] = false;
     $_SESSION['name'] = "";
 	$_SESSION['connected'] = false;

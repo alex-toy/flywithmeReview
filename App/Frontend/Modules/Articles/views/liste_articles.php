@@ -11,10 +11,6 @@ foreach ($listeArticles as $articles)
 
 
 
-			
-			
-			
-			
-			
-        
-        
+
+
+

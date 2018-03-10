@@ -14,10 +14,9 @@ foreach ($listeArticles as $articles)
 
 
 
-			
-			
-			
-			
-			
-        
-        
+
+
+
+
+
+
