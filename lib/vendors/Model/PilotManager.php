@@ -22,14 +22,12 @@ abstract class PilotManager extends Manager
    */
   public function save(Pilot $pilot)
   {
-    if ($pilot->isValid())
-    {
-      $pilot->isNew() ? $this->add($pilot) : $this->modify($pilot);
-    }
-    else
+    if (!$pilot->isValid())
     {
       throw new \RuntimeException('Le pilote doit être validée pour être enregistrée');
     }
+    $pilot->isNew() ? $this->add($pilot) : $this->modify($pilot);
+    
   }
  
   /**
