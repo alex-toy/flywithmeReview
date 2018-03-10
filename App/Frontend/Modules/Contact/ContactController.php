@@ -32,7 +32,6 @@ class ContactController extends BackController
 		
 
 		$subject = $_POST['subject'];
-		$formcontent="From: $name \n Message: $message";
 		$mail_dest = "alexei.80@hotmail.fr";
 		
 
