@@ -1,4 +1,4 @@
-<?php if ($_SESSION['connected'] == false){  ?>
+<?php if ($_SESSION['connected'] === false){  ?>
 
 <section class="encart">
 <h2>Se créer un compte</h2>
