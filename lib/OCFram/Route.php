@@ -32,16 +32,13 @@ class Route
     
    
 
-    if (preg_match($regex, $url, $matches))
-    {
-      
-      return $matches;
-    }
-    else
+    if (!preg_match($regex, $url, $matches))
     {
       
       return false;
     }
+    return $matches;
+    
   }
  
   public function setAction($action)
