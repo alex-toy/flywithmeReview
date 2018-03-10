@@ -31,9 +31,9 @@ abstract class Entity implements \ArrayAccess
     return $this->id;
   }
  
-  public function setId($id)
+  public function setId($idEntity)
   {
-    $this->id = (int) $id;
+    $this->id = (int) $idEntity;
   }
  
   public function offsetGet($var)

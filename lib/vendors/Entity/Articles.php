@@ -47,24 +47,24 @@ class Articles extends Entity
     $this->dateModif = $dateModif;
   }
   
-  public function setDepart($d)
+  public function setDepart($depart)
   {
-    if (!is_string($d) || empty($d))
+    if (!is_string($depart) || empty($depart))
     {
       $this->erreurs[] = self::DEPART_INVALIDE;
     }
  
-    $this->depart = $d;
+    $this->depart = $depart;
   }
   
-  public function setArrivee($a)
+  public function setArrivee($arrivee)
   {
-    if (!is_string($a) || empty($a))
+    if (!is_string($arrivee) || empty($arrivee))
     {
       $this->erreurs[] = self::ARRIVEE_INVALIDE;
     }
  
-    $this->arrivee = $a;
+    $this->arrivee = $arrivee;
   }
   
   public function setTitre($titre)

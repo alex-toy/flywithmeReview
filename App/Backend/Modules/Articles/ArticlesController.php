@@ -257,16 +257,16 @@ class ArticlesController extends BackController
   public function executeValidateUnvalidatedGroupComment(HTTPRequest $request)
   {
     
-    $CommentsIdsToBeValidated = $request->getData('CommentsIdsToBeValidated');
-    $CommentsIdsToBeValidated = substr($CommentsIdsToBeValidated, 1, $CommentsIdsToBeValidated.length - 1);
+    $CommentsIds = $request->getData('CommentsIdsToBeValidated');
+    $CommentsIds = substr($CommentsIds, 1, $CommentsICommentsIdsdsToBeValidated.length - 1);
 	
-	$CommentsIdsToBeValidatedArray = explode(",",$CommentsIdsToBeValidated);
+	$CommentsIdsArray = explode(",",$CommentsIds);
     
     
     
     $id_article = $request->getData('id_article');
     
-    foreach ($CommentsIdsToBeValidatedArray as $CommentsId) {
+    foreach ($CommentsIdsArray as $CommentsId) {
     	$this->managers->getManagerOf('Comments')->validateCommentWithId($CommentsId);
 	}
     
