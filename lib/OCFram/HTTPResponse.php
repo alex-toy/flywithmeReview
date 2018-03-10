@@ -13,7 +13,7 @@ class HTTPResponse extends ApplicationComponent
   public function redirect($location)
   {
     header('Location: '.$location);
-    exit;
+    //exit;
   }
  
   public function redirect404()
@@ -28,6 +28,7 @@ class HTTPResponse extends ApplicationComponent
  
   public function send()
   {
+    //$this->page->getGeneratedPage();
     exit($this->page->getGeneratedPage());
   }
  

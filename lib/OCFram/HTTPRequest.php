@@ -23,19 +23,9 @@ class HTTPRequest extends ApplicationComponent
   }
  
   public function postData($key)
-  {
-    
-    //$post = new _POST()
-    
+  {    
     return isset($_POST[$key]) ? $_POST[$key] : null;
-    
-    // echo 'ici';
-//     
-     
-//     
-//     return isset(_POST->$key() ) ? $_POST[$key] : null;
-//     
-    
+
   }
   
   
