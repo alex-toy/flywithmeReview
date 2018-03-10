@@ -136,6 +136,7 @@ class ArticlesController extends BackController
  
   public function executeInsertComment(HTTPRequest $request)
   {
+    $comment = new Comment;
     if ($request->method() == 'POST')
     {
       $comment = new Comment([
@@ -143,13 +144,9 @@ class ArticlesController extends BackController
         'auteur' => $_SESSION['name'],
         'contenu' => $request->postData('contenu'),
         'validated' => false
-      ]);
-            
+      ]);  
     }
-    else
-    {
-      $comment = new Comment;
-    }
+    
  
     $formBuilder = new CommentFormBuilder($comment);
     $formBuilder->build();
