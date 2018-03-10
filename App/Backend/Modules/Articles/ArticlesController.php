@@ -258,7 +258,7 @@ class ArticlesController extends BackController
   {
     
     $CommentsIds = $request->getData('CommentsIdsToBeValidated');
-    $CommentsIds = substr($CommentsIds, 1, $CommentsICommentsIdsdsToBeValidated.length - 1);
+    $CommentsIds = substr($CommentsIds, 1, $CommentsIds.length - 1);
 	
 	$CommentsIdsArray = explode(",",$CommentsIds);
     

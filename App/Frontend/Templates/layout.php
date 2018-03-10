@@ -99,13 +99,14 @@
 		
 		
 		<!-- getFlash ================================================== -->
-		<?php if ($user->hasFlash()) echo '
+		<?php if ($user->hasFlash()){ ?>
 		<div class="row">
 			<div class="col-sm-2"></div>
 			<div class="col-sm-10">
-			<p style="text-align: center;"  class="encart">', $user->getFlash(), '</p>
+			<p style="text-align: center;"  class="encart"><?= $user->getFlash() ?></p>
 			</div>
-		</div>'; ?>
+		</div> 
+		<?php } ?>
 		
 		
 		
