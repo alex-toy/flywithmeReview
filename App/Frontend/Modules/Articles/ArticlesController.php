@@ -86,6 +86,9 @@ class ArticlesController extends BackController
     
     
     $listeAllTitle = $manager->getAllTitle();
+    $this->page->addVar('listeAllTitle', $listeAllTitle);
+    
+    
     ob_start();
       require __DIR__ .'/views/bandeau_lateral_titre.php';
     $bandeau_lateral = ob_get_clean();
@@ -189,6 +192,9 @@ class ArticlesController extends BackController
     
     
   }
+  
+  
+  
   public function executeSearch(HTTPRequest $request)
   {
     if ($request->method() == 'POST')
