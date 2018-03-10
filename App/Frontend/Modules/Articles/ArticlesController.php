@@ -41,6 +41,8 @@ class ArticlesController extends BackController
     $nombreArticles = $manager->count();
     $this->page->addVar('nombreArticles', $nombreArticles);
     $listeAllTitle = $manager->getAllTitle();
+    $this->page->addVar('listeAllTitle', $listeAllTitle);
+    
     ob_start();
       require __DIR__ .'/views/bandeau_lateral_titre.php';
     $bandeau_lateral = ob_get_clean();

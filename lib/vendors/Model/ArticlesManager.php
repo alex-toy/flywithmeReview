@@ -22,14 +22,11 @@ abstract class ArticlesManager extends Manager
    */
   public function save(Articles $art)
   {
-    if ($art->isValid())
-    {
-      $art->isNew() ? $this->add($art) : $this->modify($art);
-    }
-    else
+    if (!$art->isValid())
     {
       throw new \RuntimeException('La news doit être validée pour être enregistrée');
     }
+    $art->isNew() ? $this->add($art) : $this->modify($art);
   }
  
   /**

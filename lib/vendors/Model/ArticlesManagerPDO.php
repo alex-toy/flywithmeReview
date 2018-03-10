@@ -26,9 +26,9 @@ class ArticlesManagerPDO extends ArticlesManager
  
  
  
-  public function delete($id)
+  public function delete($idArticle)
   {
-    $this->dao->exec('DELETE FROM article WHERE id = '.(int) $id);
+    $this->dao->exec('DELETE FROM article WHERE id = '.(int) $idArticle);
   }
  
  

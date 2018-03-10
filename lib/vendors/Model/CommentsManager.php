@@ -34,14 +34,13 @@ abstract class CommentsManager extends Manager
    */
   public function save(Comment $comment)
   {
-    if ($comment->isValid())
-    {
-      $comment->isNew() ? $this->add($comment) : $this->modify($comment);
-    }
-    else
+    if (!$comment->isValid())
     {
       throw new \RuntimeException('Le commentaire doit être validé pour être enregistré');
     }
+    $comment->isNew() ? $this->add($comment) : $this->modify($comment);
+    
+
   }
  
   /**

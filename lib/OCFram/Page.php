@@ -4,7 +4,6 @@ namespace OCFram;
 class Page extends ApplicationComponent
 {
   protected $contentFile;
-  protected $comp;
   protected $vars = [];
  
   public function addVar($var, $value)
@@ -25,15 +24,14 @@ class Page extends ApplicationComponent
       throw new \RuntimeException('La vue spécifiée n\'existe pas');
     }
     
+     $user = $this->app->user();
+ 
+
+    	extract($this->vars);
     
-    $user = $this->app->user();
- 
-    extract($this->vars);
- 
     ob_start();
       require $this->contentFile;
     $content = ob_get_clean();
-    //echo $content;
     
  
     ob_start();
@@ -52,16 +50,5 @@ class Page extends ApplicationComponent
   }
   
   
-  public function setComp($comp)
-  {
-    if (!empty($comp))
-    {
-      $this->comp = $comp;
-    }
- 
-    
-  }
-  
-  
-  
+
 }

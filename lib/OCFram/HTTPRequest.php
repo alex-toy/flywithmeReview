@@ -1,17 +1,11 @@
 <?php
+
 namespace OCFram;
+
+use _POST;
  
 class HTTPRequest extends ApplicationComponent
 {
-  public function cookieData($key)
-  {
-    return isset($_COOKIE[$key]) ? $_COOKIE[$key] : null;
-  }
- 
-  public function cookieExists($key)
-  {
-    return isset($_COOKIE[$key]);
-  }
  
   public function getData($key)
   {
@@ -30,9 +24,21 @@ class HTTPRequest extends ApplicationComponent
  
   public function postData($key)
   {
+    
+    //$post = new _POST()
+    
     return isset($_POST[$key]) ? $_POST[$key] : null;
+    
+    // echo 'ici';
+//     
+     
+//     
+//     return isset(_POST->$key() ) ? $_POST[$key] : null;
+//     
+    
   }
- 
+  
+  
   public function postExists($key)
   {
     return isset($_POST[$key]);
@@ -40,7 +46,6 @@ class HTTPRequest extends ApplicationComponent
  
   public function requestURI()
   {
-    
     return $_SERVER['REQUEST_URI'];
   }
 }
