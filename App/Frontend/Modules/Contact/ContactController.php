@@ -20,12 +20,6 @@ class ContactController extends BackController
     
     if ($request->method() == 'POST')
     {
-		
-		// if($_POST['name']){ $name = $_POST['name'];}
-// 		if($_POST['email']){ $email_from = $_POST['email'];}
-// 		if($_POST['message']){ $message = htmlspecialchars($_POST['message']);}
-		
-		
 		if($_POST['name']){ $name = str_replace(array("\n","\r",PHP_EOL),'',$_POST['name']);}
 		if($_POST['email']){ $email_from = str_replace(array("\n","\r",PHP_EOL),'',$_POST['email']);}
 		if($_POST['message']){ $message = str_replace(array("\n","\r",PHP_EOL),'',$_POST['message']);}
@@ -47,9 +41,11 @@ class ContactController extends BackController
 		$header.= "Content-Type: text/html; charset=\"ISO-8859-1\"";
 
 
-		mail($mail_dest,$subject,$message,$header) or die("Error!");
 		
-		
+		if (!mail($mail_dest,$subject,$message,$header))
+		{
+		  throw new \RuntimeException('Le mail n\'a pu être envoyé');
+		}
 
       	$this->app->user()->setFlash("Merci " . ucfirst($name) .  " pour votre message, je ne manquerai pas d'y répondre!");
       	 
