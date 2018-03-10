@@ -52,7 +52,6 @@ class Form
  
   public function entity()
   {
-    echo get_class($this->entity);
     return $this->entity;
   }
  
