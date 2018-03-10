@@ -21,10 +21,15 @@ class ContactController extends BackController
     if ($request->method() == 'POST')
     {
 		
-		if($_POST['name']){ $name = str_replace(array("\n","\r",PHP_EOL),'',$_POST['name']);}
-		if($_POST['email']){ $email_from = str_replace(array("\n","\r",PHP_EOL),'',$_POST['email']);}
-		if($_POST['message']){ $message = str_replace(array("\n","\r",PHP_EOL),'',$_POST['message']);}
+		if($_POST['name']){ $name = $_POST['name'];}
+		if($_POST['email']){ $email_from = $_POST['email'];}
+		if($_POST['message']){ $message = htmlspecialchars($_POST['message']);}
 		
+		
+		// if($_POST['name']){ $name = str_replace(array("\n","\r",PHP_EOL),'',$_POST['name']);}
+// 		if($_POST['email']){ $email_from = str_replace(array("\n","\r",PHP_EOL),'',$_POST['email']);}
+// 		if($_POST['message']){ $message = str_replace(array("\n","\r",PHP_EOL),'',$_POST['message']);}
+// 		
 	
 		//$message = html_entity_decode($_POST['message']);
 	
