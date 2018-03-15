@@ -1,4 +1,6 @@
 {
+    "name" : "flywithme/flywithme"
+    "description" : "composer bundle",
     "require": {
         "elhardoum/nonce-php": "^0.1.0"
     }

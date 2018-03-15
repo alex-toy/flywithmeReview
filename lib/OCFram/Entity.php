@@ -1,9 +1,13 @@
 <?php
 namespace OCFram;
  
+
+use Hydrator;
+
+
 abstract class Entity implements \ArrayAccess
 {
-  use Hydrator;
+  //use Hydrator;
  
   protected $erreurs = [],
             $id;

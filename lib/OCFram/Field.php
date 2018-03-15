@@ -1,9 +1,13 @@
 <?php
 namespace OCFram;
+
+use Hydrator;
+
+
  
 abstract class Field
 {
-  use Hydrator;
+  //use Hydrator;
  
   protected $errorMessage;
   protected $label;

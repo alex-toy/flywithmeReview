@@ -12,11 +12,7 @@ class HTTPResponse extends ApplicationComponent
  
   public function redirect($location)
   {
-    try{
-    	header('Location: '.$location);
-    }catch (Exception $e){
-    	echo $e->getMessage();
-    }
+    header('Location: '.$location);
   }
  
   public function redirect404()
