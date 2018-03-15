@@ -1,0 +1,5 @@
+{
+    "require": {
+        "elhardoum/nonce-php": "^0.1.0"
+    }
+}

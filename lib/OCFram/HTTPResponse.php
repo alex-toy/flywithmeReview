@@ -12,12 +12,11 @@ class HTTPResponse extends ApplicationComponent
  
   public function redirect($location)
   {
-    
-    
-    
-    
-    header('Location: '.$location);
-    exit;
+    try{
+    	header('Location: '.$location);
+    }catch (Exception $e){
+    	echo $e->getMessage();
+    }
   }
  
   public function redirect404()
@@ -32,9 +31,10 @@ class HTTPResponse extends ApplicationComponent
  
   public function send()
   {
-    //return $this->page->getGeneratedPage();
-    
- 	exit($this->page->getGeneratedPage());
+ 	//header('Location: ' . $this->page->getGeneratedPage());
+ 	//exit($this->page->getGeneratedPage());
+ 	echo $this->page->getGeneratedPage();
+ 	
   }
  
   public function setPage(Page $page)

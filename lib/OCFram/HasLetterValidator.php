@@ -9,3 +9,12 @@ class HasLetterValidator extends Validator
     return !empty($matches);
   }
 }
+
+
+
+
+
+
+
+
+

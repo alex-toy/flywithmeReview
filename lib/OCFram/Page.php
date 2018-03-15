@@ -24,10 +24,10 @@ class Page extends ApplicationComponent
       throw new \RuntimeException('La vue spécifiée n\'existe pas');
     }
     
-     $user = $this->app->user();
+    $user = $this->app->user();
  
 
-    	extract($this->vars);
+    extract($this->vars);
     
     ob_start();
       require $this->contentFile;
@@ -38,6 +38,10 @@ class Page extends ApplicationComponent
       require __DIR__.'/../../App/'.$this->app->name().'/Templates/layout.php';
     return ob_get_clean();
   }
+  
+  
+  
+  
  
   public function setContentFile($contentFile)
   {
@@ -52,3 +56,9 @@ class Page extends ApplicationComponent
   
 
 }
+
+
+
+
+
+

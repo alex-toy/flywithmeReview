@@ -38,6 +38,7 @@ class Form
  
   public function isValid()
   {
+    
     $valid = true;
  
     foreach ($this->fields as $field)
@@ -45,6 +46,7 @@ class Form
       if (!$field->isValid())
       {
         $valid = false;
+        
       }
     }
     return $valid;

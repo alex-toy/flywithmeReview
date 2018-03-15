@@ -1,0 +1,24 @@
+{
+    "name": "elhardoum/nonce-php",
+    "type": "library",
+    "description": "Fast PHP nonce and CSRF tokens tool",
+    "keywords": ["CSRF", "tokens", "nonce", "form"],
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "elhardoum",
+            "email": "elhardoumar@gmail.com",
+            "homepage": "https://samelh.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.4",
+        "ircmaxell/random-lib": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nonce\\": "src"
+        }
+    }
+}

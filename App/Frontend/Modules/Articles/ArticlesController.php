@@ -149,6 +149,7 @@ class ArticlesController extends BackController
         'contenu' => $request->postData('contenu'),
         'validated' => false
       ]);  
+      
     }
     
  
@@ -159,13 +160,17 @@ class ArticlesController extends BackController
  
     $formHandler = new FormHandler($form, $this->managers->getManagerOf('Comments'), $request);
  
+    echo $formHandler->process();
+   
     if ($formHandler->process())
     {
       $this->app->user()->setFlash(ucfirst($_SESSION['name']) . ', votre commentaire va être prochainement validé ! Merci !');
- 
+  echo 'ici';
       $this->app->httpResponse()->redirect('articles-'.$request->getData('id_article').'.html');
+      
     }
  
+    
     $this->page->addVar('comment', $comment);
     $this->page->addVar('form', $form->createView());
     $this->page->addVar('title', 'Ajout d\'un commentaire');

@@ -3,6 +3,12 @@ namespace App\Backend\Modules\Connexion;
  
 use \OCFram\BackController;
 use \OCFram\HTTPRequest;
+
+//use Nonce\{Nonce,Config};
+//require __DIR__ . '../../../../vendor/autoload.php';
+
+
+
  
 class ConnexionController extends BackController
 {
@@ -12,14 +18,17 @@ class ConnexionController extends BackController
   {
     $this->page->addVar('title', 'Connexion');
     
-    
- 
     if ($request->postExists('login'))
     {
+      
+    	//if ( isset( $_POST['login'] ) && Nonce::verify( $_POST['login'], 'signup-form' ) ) {}
+      
+      
       $login = $request->postData('login');
       $password = $request->postData('password');
  
-      if ($login == $this->app->config()->get('login') && $password == $this->app->config()->get('passw'))
+      
+      if ( hash_equals($login, $this->app->config()->get('login')) && hash_equals($password, $this->app->config()->get('passw')) )
       {
         $_SESSION['name'] = "admin";
 		$_SESSION['connected'] = true;
